@@ -27,7 +27,6 @@ public class HelloWorldControllerImpl implements HelloWorldController {
 
 		if (testNumber != null) {
 			numbers.add(testNumber);
-
 			status = HttpStatus.CREATED;
 		} else {
 			status = HttpStatus.FORBIDDEN;
