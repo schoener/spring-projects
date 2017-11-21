@@ -11,7 +11,6 @@
 		<jackson.version>1.9.10</jackson.version>
 		<jackson.databind.version>2.9.2</jackson.databind.version>
 		<jdk.version>1.8</jdk.version>
-		
 	</properties>
 
 	<dependencies>
@@ -40,6 +39,29 @@
 		</dependency>
 	</dependencies>
 
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<target.env>local</target.env>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<property>
+					<name>target.env</name>
+					<value>dev</value>
+				</property>
+			</activation>
+			<properties>
+				<target.env>dev</target.env>
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
 		<finalName>spring-rest</finalName>
@@ -53,8 +75,23 @@
 					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<webResources>
+						<resource>
+							<filtering>true</filtering>
+							<directory>src/main/webapp</directory>
+							<includes>
+								<include>**/*.xml</include>
+							</includes>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
 		</plugins>
-
 	</build>
 
 </project>
