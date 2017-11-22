@@ -15,16 +15,16 @@ public interface HelloWorldController {
 
 	@RequestMapping(value = "/{testNumber}/test", method = RequestMethod.GET)
 	@ResponseBody
-	String getTest(@PathVariable String testNumber);
+	String getNumber(@PathVariable String testNumber);
 	
 	
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	List<String> getTests();
+	List<String> getNumbers();
 	
 	
 	@RequestMapping(method = RequestMethod.POST, consumes=MediaType.TEXT_HTML_VALUE)
 	@ResponseBody
-	ResponseEntity<String> addTest(@RequestBody String testNumber);
+	ResponseEntity<String> addNumber(@RequestBody String testNumber);
 	
 }
