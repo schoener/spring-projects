@@ -1,4 +1,4 @@
-package de.schoener.domain;
+package de.schoener.spring.domain;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import de.schoener.domain.NumbersCollector;
+import de.schoener.spring.domain.NumbersCollector;
 import de.schoener.spring.rest.controller.api.HelloWorldController;
 
 @Controller

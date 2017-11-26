@@ -16,9 +16,9 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>de.schoener.domain</groupId>
-			<artifactId>domain</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>de.schoener.spring</groupId>
+			<artifactId>spring-domain</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
@@ -43,6 +43,14 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.databind.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
