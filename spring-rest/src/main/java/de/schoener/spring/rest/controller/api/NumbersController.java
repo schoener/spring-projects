@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import de.schoener.spring.rest.data.object.SpringNumberDO;
+
 @RequestMapping("/tests")
-public interface HelloWorldController {
+public interface NumbersController {
 
 	@RequestMapping(value = "/{testNumber}/test", method = RequestMethod.GET)
 	@ResponseBody
-	String getNumber(@PathVariable String testNumber);
-	
-	
+	ResponseEntity<SpringNumberDO> getNumber(@PathVariable String testNumber);
+
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	List<String> getNumbers();
-	
-	
-	@RequestMapping(method = RequestMethod.POST, consumes=MediaType.TEXT_HTML_VALUE)
+	ResponseEntity<List<SpringNumberDO>> getNumbers();
+
+	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.TEXT_HTML_VALUE)
 	@ResponseBody
 	ResponseEntity<String> addNumber(@RequestBody String testNumber);
-	
+
 }
