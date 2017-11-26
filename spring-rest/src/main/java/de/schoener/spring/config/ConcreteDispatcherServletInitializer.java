@@ -17,7 +17,7 @@ public class ConcreteDispatcherServletInitializer extends
 	@Override
 	protected WebApplicationContext createRootApplicationContext() {
 		XmlWebApplicationContext context = new XmlWebApplicationContext();
-		context.setConfigLocation("classpath:spring/contextConfig.xml");
+		context.setConfigLocation("classpath:spring/applicationContext.xml");
 		return context;
 	}
 
