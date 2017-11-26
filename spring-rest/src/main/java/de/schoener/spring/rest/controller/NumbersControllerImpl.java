@@ -1,7 +1,8 @@
 package de.schoener.spring.rest.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,8 +25,13 @@ public class NumbersControllerImpl implements NumbersController {
 	@Override
 	public ResponseEntity<SpringNumberDO> getNumber(
 			@PathVariable String testNumber) {
-		SpringNumber springNumber = numbersService.getNumber(testNumber);
-		SpringNumberDO numberDO = new SpringNumberDO(springNumber.intValue());
+		Optional<SpringNumber> springNumberFound = numbersService
+				.getNumber(testNumber);
+		SpringNumberDO numberDO = null;
+
+		if (springNumberFound.isPresent()) {
+			numberDO = new SpringNumberDO(springNumberFound.get().intValue());
+		}
 
 		return new ResponseEntity<SpringNumberDO>(numberDO, HttpStatus.OK);
 	}
@@ -47,14 +53,11 @@ public class NumbersControllerImpl implements NumbersController {
 	@Override
 	public ResponseEntity<List<SpringNumberDO>> getNumbers() {
 		List<SpringNumber> numbers = numbersService.getNumbers();
-		List<SpringNumberDO> numbersDO = new ArrayList<SpringNumberDO>();
-
-		for (SpringNumber springNumber : numbers) {
-			numbersDO.add(new SpringNumberDO(springNumber.intValue()));
-		}
+		List<SpringNumberDO> numbersDO = numbers.stream().map(number -> {
+			return new SpringNumberDO(number.intValue());
+		}).collect(Collectors.toList());
 
 		return new ResponseEntity<List<SpringNumberDO>>(numbersDO,
 				HttpStatus.OK);
 	}
-
 }

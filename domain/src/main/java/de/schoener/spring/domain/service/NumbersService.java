@@ -2,6 +2,7 @@ package de.schoener.spring.domain.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
@@ -20,8 +21,11 @@ public class NumbersService {
 		return numbers;
 	}
 
-	public SpringNumber getNumber(String number) {
-		return new SpringNumber(number);
+	public Optional<SpringNumber> getNumber(String number) {
+		SpringNumber springNumberToSearch = new SpringNumber(number);
+		Optional<SpringNumber> findFirst = numbers.stream()
+				.filter(n -> n.equals(springNumberToSearch)).findFirst();
 
+		return findFirst;
 	}
 }

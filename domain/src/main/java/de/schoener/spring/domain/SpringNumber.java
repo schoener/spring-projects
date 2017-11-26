@@ -13,6 +13,10 @@ public class SpringNumber extends Number {
 	private final int value;
 
 	public SpringNumber(String number) {
+		if (number == null) {
+			throw new IllegalArgumentException("Number cannot be null");
+		}
+
 		this.value = Integer.parseInt(number);
 	}
 
@@ -34,6 +38,29 @@ public class SpringNumber extends Number {
 	@Override
 	public double doubleValue() {
 		return value;
+	}
+
+	@Override
+	public int hashCode() {
+		return value;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+
+		}
+		if (getClass() != obj.getClass()) {
+
+			return false;
+		}
+
+		SpringNumber other = (SpringNumber) obj;
+		return value == other.value;
 	}
 
 }

@@ -5,6 +5,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class SpringNumberDO {
 
+	public SpringNumberDO() {
+	}
+
 	private int value;
 
 	public SpringNumberDO(int number) {

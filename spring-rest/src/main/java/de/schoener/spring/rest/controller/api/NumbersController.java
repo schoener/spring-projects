@@ -15,15 +15,15 @@ import de.schoener.spring.rest.data.object.SpringNumberDO;
 @RequestMapping("/tests")
 public interface NumbersController {
 
-	@RequestMapping(value = "/{testNumber}/test", method = RequestMethod.GET)
+	@RequestMapping(value = "/{testNumber}/test", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	ResponseEntity<SpringNumberDO> getNumber(@PathVariable String testNumber);
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	ResponseEntity<List<SpringNumberDO>> getNumbers();
 
-	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.TEXT_HTML_VALUE)
+	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	ResponseEntity<String> addNumber(@RequestBody String testNumber);
 
