@@ -4,12 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import de.schoener.spring.domain.SpringNumber;
+import de.schoener.spring.integration.SpringNumberDAO;
 
 @Component
 public class NumbersService {
+
+	@Autowired
+	private SpringNumberDAO springNumberDAO;
 
 	private List<SpringNumber> numbers = new ArrayList<SpringNumber>();
 
@@ -23,9 +28,9 @@ public class NumbersService {
 
 	public Optional<SpringNumber> getNumber(String number) {
 		SpringNumber springNumberToSearch = new SpringNumber(number);
-		Optional<SpringNumber> findFirst = numbers.stream()
-				.filter(n -> n.equals(springNumberToSearch)).findFirst();
+		// Optional<SpringNumber> findFirst = numbers.stream()
+		// .filter(n -> n.equals(springNumberToSearch)).findFirst();
 
-		return findFirst;
+		return springNumberDAO.getNumber(springNumberToSearch.intValue());
 	}
 }

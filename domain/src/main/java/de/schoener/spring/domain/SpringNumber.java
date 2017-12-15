@@ -20,6 +20,14 @@ public class SpringNumber extends Number {
 		this.value = Integer.parseInt(number);
 	}
 
+	public SpringNumber(Integer number) {
+		if (number == null) {
+			throw new IllegalArgumentException("Number cannot be null");
+		}
+
+		this.value = number;
+	}
+
 	@Override
 	public int intValue() {
 		return value;
