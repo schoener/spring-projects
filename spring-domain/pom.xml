@@ -48,6 +48,19 @@
 	</dependencies>
 
 	<build>
+		<filters>
+			<filter>src/main/resources/profiles/${build.profile.id}/db-config.properties</filter>
+		</filters>
+
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+
+
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
