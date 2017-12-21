@@ -79,6 +79,8 @@
 	<modules>
 		<module>../spring-domain</module>
 		<module>../spring-rest</module>
+		<module>../spring-integration</module>
+		<module>spring-integration</module>
 	</modules>
 
 	<profiles>
