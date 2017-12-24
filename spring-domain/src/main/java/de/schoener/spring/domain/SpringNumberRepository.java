@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface SpringNumberRepository {
 
-	Optional<SpringNumber> getNumber(int number);
+	Optional<SpringNumber> getNumber(Long number);
 
 	Collection<SpringNumber> findNumbers();
 

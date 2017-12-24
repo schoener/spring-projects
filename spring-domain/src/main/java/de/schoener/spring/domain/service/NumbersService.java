@@ -1,36 +1,29 @@
 package de.schoener.spring.domain.service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import de.schoener.spring.domain.SpringNumber;
-import de.schoener.spring.integration.SpringNumberDAO;
+import de.schoener.spring.domain.SpringNumberRepository;
 
 @Component
 public class NumbersService {
 
 	@Autowired
-	private SpringNumberDAO springNumberDAO;
-
-	private List<SpringNumber> numbers = new ArrayList<SpringNumber>();
+	private SpringNumberRepository springNumberRepository;
 
 	public void addNumber(String number) {
-		numbers.add(new SpringNumber(number));
+		springNumberRepository.addSpringNumber(new SpringNumber(number));
 	}
 
-	public List<SpringNumber> getNumbers() {
-		return numbers;
+	public Collection<SpringNumber> getNumbers() {
+		return springNumberRepository.findNumbers();
 	}
 
 	public Optional<SpringNumber> getNumber(String number) {
-		SpringNumber springNumberToSearch = new SpringNumber(number);
-		// Optional<SpringNumber> findFirst = numbers.stream()
-		// .filter(n -> n.equals(springNumberToSearch)).findFirst();
-
-		return springNumberDAO.getNumber(springNumberToSearch.intValue());
+		return springNumberRepository.getNumber(Long.valueOf(number));
 	}
 }

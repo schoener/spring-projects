@@ -22,7 +22,7 @@ public class SpringNumberRepositoryImpl implements SpringNumberRepository {
 	private SpringNumberDAO<SpringNumberEntity> springNumberDAO;
 
 	@Override
-	public Optional<SpringNumber> getNumber(int number) {
+	public Optional<SpringNumber> getNumber(Long number) {
 		Optional<SpringNumberEntity> springNumberFound = springNumberDAO.getNumber(number);
 		if (!springNumberFound.isPresent()) {
 			return Optional.empty();
