@@ -1,5 +1,7 @@
 package de.schoener.spring.domain;
 
+import java.util.Objects;
+
 /**
  * Simple number class internally implemented like {@link java.lang.Integer}.
  * 
@@ -10,27 +12,24 @@ public class SpringNumber extends Number {
 
 	private static final long serialVersionUID = 1L;
 
-	private final int value;
+	private final Long value;
 
 	public SpringNumber(String number) {
 		if (number == null) {
 			throw new IllegalArgumentException("Number cannot be null");
 		}
 
-		this.value = Integer.parseInt(number);
+		this.value = Long.parseLong(number);
 	}
 
-	public SpringNumber(Integer number) {
-		if (number == null) {
-			throw new IllegalArgumentException("Number cannot be null");
-		}
-
+	public SpringNumber(Long number) {
+		Objects.requireNonNull(number, "Number cannot be null");
 		this.value = number;
 	}
 
 	@Override
 	public int intValue() {
-		return value;
+		return value.intValue();
 	}
 
 	@Override
@@ -50,7 +49,7 @@ public class SpringNumber extends Number {
 
 	@Override
 	public int hashCode() {
-		return value;
+		return value.intValue();
 	}
 
 	@Override

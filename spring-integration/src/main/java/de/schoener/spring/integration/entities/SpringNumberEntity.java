@@ -4,11 +4,19 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+@NamedQueries(value = {
+		@NamedQuery(name = SpringNumberEntity.GET_NUMBER, query = "FROM SpringNumberEntity e where e.springNumber= :springNumber"),
+		@NamedQuery(name = SpringNumberEntity.FIND_NUMBERS, query = "FROM SpringNumberEntity e"), })
 @Entity
 @Table(name = "T_SPRING_NUMBER")
 public class SpringNumberEntity {
+
+	public static final String GET_NUMBER = "SpringNumberEntity.getNumber";
+	public static final String FIND_NUMBERS = "SpringNumberEntity.findNumbers";
 
 	@Id
 	@GeneratedValue

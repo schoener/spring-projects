@@ -1,4 +1,4 @@
-package de.schoener.spring.integration;
+package de.schoener.spring.integration.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,14 +20,11 @@ public class SpringNumberDAO {
 	public Optional<SpringNumber> getNumber(int number) {
 		assert (jdbcTemplate != null);
 
-		SpringNumber springNumber = jdbcTemplate.queryForObject(
-				"SELECT * FROM T_SPRING_NUMBER WHERE SPRING_NUMBER= ?",
-				new Object[] { Integer.valueOf(number) },
-				new RowMapper<SpringNumber>() {
+		SpringNumber springNumber = jdbcTemplate.queryForObject("SELECT * FROM T_SPRING_NUMBER WHERE SPRING_NUMBER= ?",
+				new Object[] { Integer.valueOf(number) }, new RowMapper<SpringNumber>() {
 					@Override
-					public SpringNumber mapRow(ResultSet rs, int rowNum)
-							throws SQLException {
-						return new SpringNumber(rs.getInt("SPRING_NUMBER"));
+					public SpringNumber mapRow(ResultSet rs, int rowNum) throws SQLException {
+						return new SpringNumber(rs.getLong("SPRING_NUMBER"));
 					}
 				});
 

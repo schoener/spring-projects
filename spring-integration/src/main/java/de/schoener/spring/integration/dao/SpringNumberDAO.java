@@ -5,12 +5,12 @@ import java.util.Optional;
 
 import de.schoener.spring.integration.entities.SpringNumberEntity;
 
-public interface SpringNumberDAO {
+public interface SpringNumberDAO<T> {
 
-	Optional<SpringNumberEntity> getNumber(int number);
+	Optional<T> getNumber(Long number);
 
-	Collection<SpringNumberEntity> getNumebrs();
+	Collection<T> findNumbers();
 
-	void addNumber(int number);
+	void save(SpringNumberEntity entity);
 
 }
