@@ -9,9 +9,6 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>spring-integration</artifactId>
-	<properties>
-		<hibernate.version>5.2.12.Final</hibernate.version>
-	</properties>
 
 	<dependencies>
 		<!-- spring number dependencies -->
@@ -28,14 +25,12 @@
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>5.2.12.Final</version>
+			<artifactId>hibernate-core</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.196</version>
 		</dependency>
 
 		<dependency>
