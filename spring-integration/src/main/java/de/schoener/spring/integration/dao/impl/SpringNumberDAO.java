@@ -14,7 +14,7 @@ import de.schoener.spring.domain.SpringNumber;
 @Repository
 public class SpringNumberDAO {
 
-	@Autowired
+	@Autowired(required = false)
 	private JdbcTemplate jdbcTemplate;
 
 	public Optional<SpringNumber> getNumber(int number) {

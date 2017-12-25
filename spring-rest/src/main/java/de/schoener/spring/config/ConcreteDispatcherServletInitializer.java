@@ -4,8 +4,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.springframework.web.servlet.support.AbstractDispatcherServletInitializer;
 
-public class ConcreteDispatcherServletInitializer extends
-		AbstractDispatcherServletInitializer {
+public class ConcreteDispatcherServletInitializer extends AbstractDispatcherServletInitializer {
 
 	@Override
 	protected WebApplicationContext createServletApplicationContext() {
@@ -17,8 +16,7 @@ public class ConcreteDispatcherServletInitializer extends
 	@Override
 	protected WebApplicationContext createRootApplicationContext() {
 		XmlWebApplicationContext context = new XmlWebApplicationContext();
-		context.setConfigLocations("classpath:spring/applicationContext.xml",
-				"classpath:spring/db-jdbc-context.xml");
+		context.setConfigLocations("classpath:spring/applicationContext.xml", "classpath:spring/db-jpa-context.xml");
 		return context;
 	}
 

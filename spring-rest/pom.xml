@@ -20,6 +20,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>de.schoener.spring</groupId>
+			<artifactId>spring-integration</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 		</dependency>

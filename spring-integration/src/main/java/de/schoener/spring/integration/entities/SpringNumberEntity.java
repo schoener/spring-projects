@@ -8,11 +8,11 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+@Entity
+@Table(name = "T_SPRING_NUMBER")
 @NamedQueries(value = {
 		@NamedQuery(name = SpringNumberEntity.GET_NUMBER, query = "FROM SpringNumberEntity e where e.springNumber= :springNumber"),
 		@NamedQuery(name = SpringNumberEntity.FIND_NUMBERS, query = "FROM SpringNumberEntity e"), })
-@Entity
-@Table(name = "T_SPRING_NUMBER")
 public class SpringNumberEntity {
 
 	public static final String GET_NUMBER = "SpringNumberEntity.getNumber";

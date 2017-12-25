@@ -51,7 +51,7 @@ public class NumbersControllerImpl implements NumbersController {
 
 	@Override
 	public ResponseEntity<List<SpringNumberDO>> getNumbers() {
-		Collection<SpringNumber> numbers = numbersService.getNumbers();
+		Collection<SpringNumber> numbers = numbersService.findNumbers();
 		List<SpringNumberDO> numbersDO = numbers.stream().map(number -> {
 			return new SpringNumberDO(number.intValue());
 		}).collect(Collectors.toList());

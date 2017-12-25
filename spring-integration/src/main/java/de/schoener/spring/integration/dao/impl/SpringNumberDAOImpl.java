@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import de.schoener.spring.integration.dao.SpringNumberDAO;
 import de.schoener.spring.integration.entities.SpringNumberEntity;
 
+@org.springframework.transaction.annotation.Transactional
 @Repository(value = "jpaSpringNumberDAO")
 public class SpringNumberDAOImpl implements SpringNumberDAO<SpringNumberEntity> {
 
