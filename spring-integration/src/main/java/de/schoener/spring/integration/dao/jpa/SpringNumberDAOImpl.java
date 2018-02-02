@@ -1,4 +1,4 @@
-package de.schoener.spring.integration.dao.impl;
+package de.schoener.spring.integration.dao.jpa;
 
 import java.util.Collection;
 import java.util.List;
