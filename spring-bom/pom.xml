@@ -7,11 +7,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<spring.version>5.0.1.RELEASE</spring.version>
-		<hibernate.version>5.2.12.Final</hibernate.version>
-		<h2.version>1.4.196</h2.version>
-		<jackson.version>1.9.10</jackson.version>
-		<jackson.databind.version>2.9.2</jackson.databind.version>
+		<spring.version>5.1.8.RELEASE</spring.version>
 		<mockito.version>1.10.19</mockito.version>
 		<junit.version>4.12</junit.version>
 		<jdk.version>1.8</jdk.version>
@@ -44,36 +40,6 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-jdbc</artifactId>
-				<version>${spring.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-orm</artifactId>
-				<version>${spring.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-core</artifactId>
-				<version>${hibernate.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>com.h2database</groupId>
-				<artifactId>h2</artifactId>
-				<version>${h2.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>com.fasterxml.jackson.core</groupId>
-				<artifactId>jackson-databind</artifactId>
-				<version>${jackson.databind.version}</version>
-			</dependency>
-
-			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
 				<version>3.0.1</version>
@@ -101,16 +67,4 @@
 		<module>../spring-rest</module>
 		<module>../spring-integration</module>
 	</modules>
-
-	<profiles>
-		<profile>
-			<id>dev</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<build.profile.id>dev</build.profile.id>
-			</properties>
-		</profile>
-	</profiles>
 </project>
