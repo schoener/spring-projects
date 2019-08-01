@@ -8,7 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import de.schoener.spring.PackageScanner;
 
 @Configuration
-@EnableWebMvc
 @ComponentScan(basePackageClasses = { PackageScanner.class })
 public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 }
